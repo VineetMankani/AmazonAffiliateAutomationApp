@@ -34,11 +34,12 @@ jobs:
           unzip edgedriver_linux64.zip
           sudo mv msedgedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/msedgedriver
-
-      - name: Set up Edge profile directory
+          
+      - name: Download and extract Edge profile
         run: |
-          mkdir -p /home/runner/.config/microsoft-edge/Default
-
+          wget https://drive.google.com/file/d/1dGF2sY52HQFMwIxR17Ve7ieCilyjncyb/view?usp=sharing
+          unzip Default.zip -d /home/runner/.config/microsoft-edge/
+          
       - name: Run Python script
         env:
           TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
