@@ -58,7 +58,6 @@ jobs:
           EDGE_USER_DATA_DIR_PATH: /home/runner/.config/microsoft-edge-${{ github.run_id }}
           EDGE_PROFILE_DIR: Default
         run: |
-          mkdir -p $EDGE_USER_DATA_DIR_PATH
           python main.py
 
       - name: Clean up user data directory
