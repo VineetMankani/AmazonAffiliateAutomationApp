@@ -34,10 +34,15 @@ jobs:
           unzip edgedriver_linux64.zip
           sudo mv msedgedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/msedgedriver
+
+      - name: Install gdown
+        run: |
+          pip install gdown
           
       - name: Download and extract Edge profile
         run: |
-          wget --no-check-certificate --load-cookies /tmp/cookies.txt "https://drive.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://drive.google.com/uc?export=download&id=1dGF2sY52HQFMwIxR17Ve7ieCilyjncyb' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1dGF2sY52HQFMwIxR17Ve7ieCilyjncyb" -O Default.zip && rm -rf /tmp/cookies.txt
+          pip install gdown
+          gdown "https://drive.google.com/uc?export=download&id=1dGF2sY52HQFMwIxR17Ve7ieCilyjncyb" -O Default.zip
           unzip Default.zip -d /home/runner/.config/microsoft-edge/
           
       - name: Run Python script
