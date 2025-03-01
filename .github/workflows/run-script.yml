@@ -31,7 +31,7 @@ jobs:
           sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge.list'
           sudo apt update
           sudo apt install microsoft-edge-stable
-          wget https://msedgedriver.azureedge.net/<version>/edgedriver_linux64.zip
+          wget https://msedgedriver.azureedge.net/133.0.3065.92/edgedriver_linux64.zip
           unzip edgedriver_linux64.zip
           sudo mv msedgedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/msedgedriver
