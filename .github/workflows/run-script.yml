@@ -42,13 +42,13 @@ jobs:
       - name: Download and extract Edge profile
         run: |
           pip install gdown
-          gdown "https://drive.google.com/uc?export=download&id=10EWSNk1no_tCLdss4z_JV7caAPrQJ30Q" -O Default.zip
-          mkdir -p /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default/Default
-          unzip Default.zip -d /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default/Default
+          gdown "https://drive.google.com/uc?export=download&id=1cAqWIN3j7mI0QyEspaWFreEuE5zPR0ER" -O Default.zip
+          mkdir -p /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default
+          unzip Default.zip -d /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default
 
       - name: List profile directory contents
         run: |
-          ls -l /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default/Default
+          ls -l /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default
         
       - name: Run Python script
         env:
