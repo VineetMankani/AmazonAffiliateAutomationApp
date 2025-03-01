@@ -37,7 +37,7 @@ jobs:
           
       - name: Download and extract Edge profile
         run: |
-          wget --no-check-certificate --load-cookies /tmp/cookies.txt \ "https://drive.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://drive.google.com/uc?export=download&id=1dGF2sY52HQFMwIxR17Ve7ieCilyjncyb' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=<FILE_ID>" -O Default.zip \ && rm -rf /tmp/cookies.txt
+          wget --no-check-certificate --load-cookies /tmp/cookies.txt \ "https://drive.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://drive.google.com/uc?export=download&id=1dGF2sY52HQFMwIxR17Ve7ieCilyjncyb' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1dGF2sY52HQFMwIxR17Ve7ieCilyjncyb" -O Default.zip \ && rm -rf /tmp/cookies.txt
           unzip Default.zip -d /home/runner/.config/microsoft-edge/
           
       - name: Run Python script
