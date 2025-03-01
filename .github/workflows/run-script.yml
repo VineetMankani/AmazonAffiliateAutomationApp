@@ -44,7 +44,11 @@ jobs:
           pip install gdown
           gdown "https://drive.google.com/uc?export=download&id=1dGF2sY52HQFMwIxR17Ve7ieCilyjncyb" -O Default.zip
           unzip Default.zip -d /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default
-          
+
+      - name: List profile directory contents
+        run: |
+          ls -l /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default
+        
       - name: Run Python script
         env:
           TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
