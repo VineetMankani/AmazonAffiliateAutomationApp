@@ -43,12 +43,12 @@ jobs:
         run: |
           pip install gdown
           gdown "https://drive.google.com/uc?export=download&id=10EWSNk1no_tCLdss4z_JV7caAPrQJ30Q" -O Default.zip
-          mkdir -p /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default
-          unzip Default.zip -d /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default
+          mkdir -p /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default/Default
+          unzip Default.zip -d /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default/Default
 
       - name: List profile directory contents
         run: |
-          ls -l /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default
+          ls -l /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default/Default
         
       - name: Run Python script
         env:
