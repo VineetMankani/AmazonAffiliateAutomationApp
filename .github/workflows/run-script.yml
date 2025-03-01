@@ -63,4 +63,5 @@ jobs:
 
       - name: Clean up user data directory
         run: |
-          rm -rf $EDGE_USER_DATA_DIR_PATH
+          rm -rf /home/runner/.config/microsoft-edge-${{ github.run_id }}
+
