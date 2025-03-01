@@ -3,9 +3,9 @@ from telethon import TelegramClient
 from helpers import log
 
 
-def initialize_telegram_client(API_ID, API_HASH):
+def initialize_telegram_client(TELEGRAM_API_ID, TELEGRAM_API_HASH):
     """Initialize and return the Telegram client."""
-    client = TelegramClient("session_name", API_ID, API_HASH)
+    client = TelegramClient("session_name", TELEGRAM_API_ID, TELEGRAM_API_HASH)
     client.start()
     return client
 
