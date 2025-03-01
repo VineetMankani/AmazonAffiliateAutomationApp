@@ -5,8 +5,8 @@ import os
 load_dotenv()
 
 # Telegram API credentials
-API_ID = os.getenv("TELEGRAM_API_ID")
-API_HASH = os.getenv("TELEGRAM_API_HASH")
+TELEGRAM_API_ID = os.getenv("TELEGRAM_API_ID")
+TELEGRAM_API_HASH = os.getenv("TELEGRAM_API_HASH")
 
 # Edge browser configuration
 EDGE_DRIVER_PATH = os.getenv("EDGE_DRIVER_PATH", "/usr/local/bin/msedgedriver")
