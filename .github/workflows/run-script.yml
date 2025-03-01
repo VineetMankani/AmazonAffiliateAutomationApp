@@ -50,7 +50,12 @@ jobs:
           TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
           TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
           EDGE_DRIVER_PATH: /usr/local/bin/msedgedriver
-          EDGE_USER_DATA_DIR_PATH: /home/runner/.config/microsoft-edge
+          EDGE_USER_DATA_DIR_PATH: /home/runner/.config/microsoft-edge-${{ github.run_id }}
           EDGE_PROFILE_DIR: Default
         run: |
+          mkdir -p $EDGE_USER_DATA_DIR_PATH
           python main.py
+
+      - name: Clean up user data directory
+        run: |
+          rm -rf $EDGE_USER_DATA_DIR_PATH
