@@ -1,4 +1,4 @@
-from config import API_ID, API_HASH, CHANNEL_ID, PAST_TIME, FILTER_STRING
+from config import TELEGRAM_API_ID, TELEGRAM_API_HASH, CHANNEL_ID, PAST_TIME, FILTER_STRING
 from telegram_app import initialize_telegram_client, read_and_update_telegram_messages
 from helpers import update_messages, close_edge, log
 from send_msg import send_whatsapp_messages
@@ -10,7 +10,7 @@ logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s 
 log("Starting the script...")
 close_edge()
 
-client = initialize_telegram_client(API_ID, API_HASH)
+client = initialize_telegram_client(TELEGRAM_API_ID, TELEGRAM_API_HASH)
 log("Initialized Telegram client")
 
 if __name__ == "__main__":
