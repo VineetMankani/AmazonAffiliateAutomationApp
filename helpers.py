@@ -28,12 +28,12 @@ def update_messages(message):
 
 def close_edge():
     """Close all Edge Windows."""
-    tasklist = os.popen("tasklist").read()
-    if "edge.exe" in tasklist:
-        os.system("taskkill /F /IM msedge.exe /T") 
-        log("Edge Windows running, closed now")
+    ps_output = subprocess.check_output(['ps', '-A']).decode()
+    if "microsoft-edge" in ps_output:
+        subprocess.run(['killall', 'microsoft-edge'])
+        log("Edge Linux processes running, closed now")
     else:
-        log("No Edge Windows running")
+        log("No Edge Linux processes running")
 
 
 def log(message):
