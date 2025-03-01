@@ -9,9 +9,9 @@ API_ID = os.getenv("TELEGRAM_API_ID")
 API_HASH = os.getenv("TELEGRAM_API_HASH")
 
 # Edge browser configuration
-EDGE_DRIVER_PATH = os.getenv("EDGE_DRIVER_PATH")
-EDGE_USER_DATA_DIR_PATH = os.getenv("EDGE_USER_DATA_DIR_PATH")
-EDGE_PROFILE_DIR = os.getenv("EDGE_PROFILE_DIR")
+EDGE_DRIVER_PATH = os.getenv("EDGE_DRIVER_PATH", "/usr/local/bin/msedgedriver")
+EDGE_USER_DATA_DIR_PATH = os.getenv("EDGE_USER_DATA_DIR_PATH", "/home/runner/.config/microsoft-edge")
+EDGE_PROFILE_DIR = os.getenv("EDGE_PROFILE_DIR", "Default")
 
 # Channel IDs # BestDealsInIndia=-1001493857075 # DailyDeals=-1001401654901 # My=-4618136976
 CHANNEL_ID = [-1001493857075, -1001401654901, -4618136976]
