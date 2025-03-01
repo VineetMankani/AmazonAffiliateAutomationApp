@@ -17,7 +17,7 @@ EDGE_PROFILE_DIR = os.getenv("EDGE_PROFILE_DIR", "Default")
 CHANNEL_ID = [-1001493857075, -1001401654901, -4618136976]
 
 # Time window for fetching messages (in seconds)
-PAST_TIME = 60*15  # Default to 15 minutes
+PAST_TIME = 60*60  # Default to 60 minutes
 
 # Filter string for messages
 FILTER_STRING = "https://amzn.to/"
