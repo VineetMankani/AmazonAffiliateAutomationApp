@@ -2,6 +2,7 @@ from affiliate_link import get_affiliate_url
 import re
 import os
 import logging
+import subprocess
 from datetime import datetime
 
 def update_messages(message):
