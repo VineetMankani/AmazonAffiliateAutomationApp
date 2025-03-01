@@ -21,9 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install selenium
-          pip install telethon
-          pip install python-dotenv
+          pip install selenium telethon python-dotenv
           
       - name: Install Edge browser and driver
         run: |
@@ -38,5 +36,9 @@ jobs:
           sudo chmod +x /usr/local/bin/msedgedriver
 
       - name: Run Python script
+        env:
+          EDGE_DRIVER_PATH: /usr/local/bin/msedgedriver
+          EDGE_USER_DATA_DIR_PATH: /home/runner/.config/microsoft-edge
+          EDGE_PROFILE_DIR: Default
         run: |
           python main.py
