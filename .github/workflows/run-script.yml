@@ -35,6 +35,10 @@ jobs:
           sudo mv msedgedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/msedgedriver
 
+      - name: Set up Edge profile directory
+        run: |
+          mkdir -p /home/runner/.config/microsoft-edge/Default
+
       - name: Run Python script
         env:
           EDGE_DRIVER_PATH: /usr/local/bin/msedgedriver
