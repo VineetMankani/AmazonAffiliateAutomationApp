@@ -14,10 +14,11 @@ GROUP_NAMES = ["Amazon Affiliate", "Amazon Affiliate 2"]
 def send_whatsapp_messages(messages):
     
     options = webdriver.EdgeOptions()
-    options.add_argument(f"user-data-dir={EDGE_USER_DATA_DIR_PATH}")
-    options.add_argument(f"profile-directory={EDGE_PROFILE_DIR}")
+    options.add_argument(f"--user-data-dir={EDGE_USER_DATA_DIR_PATH}")
+    options.add_argument(f"--profile-directory={EDGE_PROFILE_DIR}")
     options.add_argument("--disable-gpu")
     options.add_argument("--remote-debugging-port=9222")
+    options.add_argument("--headless")  # Optional: Run in headless mode
 
     service = Service(EDGE_DRIVER_PATH)
     driver = webdriver.Edge(service=service, options=options)   
