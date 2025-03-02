@@ -18,7 +18,17 @@ def get_affiliate_url(product_url):
 
     try:
         driver.get(product_url)
+        driver.save_screenshot("amazon.png")
 
+        # Print the page title
+        print("Page Title:", driver.title)
+        
+        # Check if logged in
+        if "Hello, " in driver.title or "Your Account" in driver.title:
+            print("Amazon is logged in!")
+        else:
+            print("Amazon is NOT logged in.")
+            
         button = driver.find_element(By.ID, "amzn-ss-get-link-button")
         button.click()
 
