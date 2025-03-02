@@ -77,10 +77,12 @@ def get_affiliate_url(product_url):
             
         except Exception as e:
             print(f"Error finding or clicking affiliate elements: {e}")
+            driver.save_screenshot("error_affiliate_elements.png")
             return None
             
     except Exception as e:
         print(f"Error getting affiliate URL for {product_url}: {e}")
+        driver.save_screenshot("error_page.png")
         return None
     finally:
         # Clean up
