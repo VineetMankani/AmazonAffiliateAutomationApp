@@ -39,12 +39,8 @@ jobs:
         run: |
           pip install gdown
           gdown "https://drive.google.com/uc?export=download&id=1bnm3PelR9wSWhZb44HmMKKCIxEbU1QgD" -O "Profile 3.zip"
-          mkdir -p "/home/runner/.config/microsoft-edge-${{ github.run_id }}"
-          unzip "Profile 3.zip" -d "/home/runner/.config/microsoft-edge-${{ github.run_id }}"
-
-      - name: List profile directory contents
-        run: |
-          ls -l "/home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3"
+          mkdir -p "/home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3"
+          unzip "Profile 3.zip" -d "/home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3"
         
       - name: Run Python script
         env:
@@ -55,6 +51,10 @@ jobs:
           EDGE_PROFILE_DIR: "Profile 3"
         run: |
           python main.py
+
+      - name: List profile directory contents
+        run: |
+          ls -l "/home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3"
           
       - name: Clean up user data directory
         run: |
