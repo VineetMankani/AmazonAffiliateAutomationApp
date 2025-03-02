@@ -11,13 +11,13 @@ def get_affiliate_url(product_url):
     options.add_argument(f"--profile-directory={EDGE_PROFILE_DIR}")
     options.add_argument("--disable-gpu")
     options.add_argument("--remote-debugging-port=9222")
-    options.add_argument("--headless")  # Optional: Run in headless mode
 
     service = Service(EDGE_DRIVER_PATH)
     driver = webdriver.Edge(service=service, options=options)   
 
     try:
         driver.get(product_url)
+        time.sleep(3)
         driver.save_screenshot("amazon.png")
 
         # Print the page title
