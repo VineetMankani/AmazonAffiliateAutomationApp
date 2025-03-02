@@ -55,12 +55,6 @@ jobs:
           EDGE_PROFILE_DIR: Profile 3
         run: |
           python main.py
-
-      - name: Upload screenshot
-        uses: actions/upload-artifact@v3
-        with:
-          name: amazon-screenshot
-          path: amazon.png
           
       - name: Clean up user data directory
         run: |
