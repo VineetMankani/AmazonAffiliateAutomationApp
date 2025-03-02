@@ -34,21 +34,17 @@ jobs:
           unzip edgedriver_linux64.zip
           sudo mv msedgedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/msedgedriver
-
-      - name: Install gdown
-        run: |
-          pip install gdown
           
       - name: Download and extract Edge profile
         run: |
           pip install gdown
-          gdown "https://drive.google.com/uc?export=download&id=1cAqWIN3j7mI0QyEspaWFreEuE5zPR0ER" -O Default.zip
-          mkdir -p /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default
-          unzip Default.zip -d /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default
+          gdown "https://drive.google.com/uc?export=download&id=1bnm3PelR9wSWhZb44HmMKKCIxEbU1QgD" -O Profile 3.zip
+          mkdir -p /home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3
+          unzip Default.zip -d /home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3
 
       - name: List profile directory contents
         run: |
-          ls -l /home/runner/.config/microsoft-edge-${{ github.run_id }}/Default
+          ls -l /home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3
         
       - name: Run Python script
         env:
@@ -56,10 +52,16 @@ jobs:
           TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
           EDGE_DRIVER_PATH: /usr/local/bin/msedgedriver
           EDGE_USER_DATA_DIR_PATH: /home/runner/.config/microsoft-edge-${{ github.run_id }}
-          EDGE_PROFILE_DIR: Default
+          EDGE_PROFILE_DIR: Profile 3
         run: |
           python main.py
 
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v3
+        with:
+          name: amazon-screenshot
+          path: amazon.png
+          
       - name: Clean up user data directory
         run: |
           rm -rf /home/runner/.config/microsoft-edge-${{ github.run_id }}
