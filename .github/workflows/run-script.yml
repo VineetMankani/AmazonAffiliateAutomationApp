@@ -39,8 +39,8 @@ jobs:
         run: |
           pip install gdown
           gdown "https://drive.google.com/uc?export=download&id=1bnm3PelR9wSWhZb44HmMKKCIxEbU1QgD" -O "Profile 3.zip"
-          mkdir -p "/home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3"
-          unzip "Profile 3.zip" -d "/home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3"
+          mkdir -p "/home/runner/.config/microsoft-edge-${{ github.run_id }}"
+          unzip "Profile 3.zip" -d "/home/runner/.config/microsoft-edge-${{ github.run_id }}"
 
       - name: List profile directory contents
         run: |
