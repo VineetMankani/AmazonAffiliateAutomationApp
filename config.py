@@ -14,7 +14,8 @@ TELEGRAM_API_HASH = os.getenv("TELEGRAM_API_HASH")
 #EDGE_PROFILE_DIR = os.getenv("EDGE_PROFILE_DIR", "Profile 3")
 
 EDGE_DRIVER_PATH = "/usr/local/bin/msedgedriver"
-EDGE_USER_DATA_DIR_PATH = "/home/runner/.config/microsoft-edge-${{ github.run_id }}"
+EDGE_USER_DATA_DIR_PATH = "/home/runner/edge_profiles"
+#EDGE_USER_DATA_DIR_PATH = "/home/runner/.config/microsoft-edge-${{ github.run_id }}"
 EDGE_PROFILE_DIR = "Profile 3"
 
 # Channel IDs # BestDealsInIndia=-1001493857075 # DailyDeals=-1001401654901 # My=-4618136976
