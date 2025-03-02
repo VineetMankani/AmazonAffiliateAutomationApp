@@ -46,9 +46,6 @@ jobs:
         env:
           TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
           TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
-          EDGE_DRIVER_PATH: /usr/local/bin/msedgedriver
-          EDGE_USER_DATA_DIR_PATH: /home/runner/.config/microsoft-edge-${{ github.run_id }}
-          EDGE_PROFILE_DIR: "Profile 3"
         run: |
           python main.py
 
