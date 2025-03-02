@@ -38,13 +38,13 @@ jobs:
       - name: Download and extract Edge profile
         run: |
           pip install gdown
-          gdown "https://drive.google.com/uc?export=download&id=1bnm3PelR9wSWhZb44HmMKKCIxEbU1QgD" -O Profile 3.zip
-          mkdir -p /home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3
-          unzip Default.zip -d /home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3
+          gdown "https://drive.google.com/uc?export=download&id=1bnm3PelR9wSWhZb44HmMKKCIxEbU1QgD" -O "Profile 3.zip"
+          mkdir -p "/home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3"
+          unzip "Profile 3.zip" -d "/home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3"
 
       - name: List profile directory contents
         run: |
-          ls -l /home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3
+          ls -l "/home/runner/.config/microsoft-edge-${{ github.run_id }}/Profile 3"
         
       - name: Run Python script
         env:
@@ -52,7 +52,7 @@ jobs:
           TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
           EDGE_DRIVER_PATH: /usr/local/bin/msedgedriver
           EDGE_USER_DATA_DIR_PATH: /home/runner/.config/microsoft-edge-${{ github.run_id }}
-          EDGE_PROFILE_DIR: Profile 3
+          EDGE_PROFILE_DIR: "Profile 3"
         run: |
           python main.py
           
