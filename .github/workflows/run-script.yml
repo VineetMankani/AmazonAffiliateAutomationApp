@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'  # Use your required Python version
       
@@ -46,16 +46,13 @@ jobs:
         run: |
           echo "TELEGRAM_API_ID=${{ secrets.TELEGRAM_API_ID }}" > .env
           echo "TELEGRAM_API_HASH=${{ secrets.TELEGRAM_API_HASH }}" >> .env
-          echo "EDGE_DRIVER_PATH=/usr/local/bin/msedgedriver" >> .env
-          echo "EDGE_USER_DATA_DIR_PATH=/home/runner/edge_profiles" >> .env
-          echo "EDGE_PROFILE_DIR=Profile 3" >> .env
           
       - name: Run Python script
         run: |
           python main.py
           
       - name: Upload screenshots for debugging
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: screenshots
